@@ -1,0 +1,24 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended",
+        "tslint-no-unused-expression-chai"
+    ],
+    "jsRules": {},
+    "rules": {
+        "object-literal-sort-keys": false,
+        "trailing-comma": false,
+        "ordered-imports": false,
+        "no-console": false,
+        "decorators": false,
+        "arrow-parens": false,
+        "no-unused-expression-chai": false,
+        "max-line-length": false,
+        "no-string-literal": false,
+        "member-ordering": false,
+        "variable-name": false
+    },
+    "rulesDirectory": [
+        "tslint-no-unused-expression-chai"
+    ]
+}

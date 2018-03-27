@@ -1,0 +1,7 @@
+[
+    {
+        "name": "Gateway",
+        "uri": "/v1/gateway",
+        "path": "/api/v1/gateway-ctr"
+    }
+]
