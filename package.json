@@ -4,13 +4,13 @@
   "private": false,
   "description": "A nodejs typescript template project.",
   "scripts": {
-    "build": "clear && tsc -p .",
-    "watch-ts": "clear && tsc -w -p .",
-    "watch": "clear && nodemon dist/src/lib/core/boot.js",
+    "build": "tsc --pretty -p .",
+    "watch-ts": "tsc -w --pretty -p .",
+    "watch": "nodemon dist/src/main.js",
     "test:tslint": "tslint --project tslint.json",
     "test:unit": "nyc mocha --require ts-node/register test/unit/*.ts",
     "test:security": "nsp check",
-    "test": "clear && npm run test:tslint && npm run test:unit && npm run test:security",
+    "test": "npm run test:tslint && npm run test:unit && npm run test:security",
     "reinstall-module": "bash ./bin/reinstall-module.sh",
     "git-push": "bash ./bin/git-push.sh"
   },
@@ -59,9 +59,7 @@
   "dependencies": {
     "dotenv": "^5.0.1",
     "getenv": "^0.7.0",
-    "inversify": "^4.11.1",
     "path": "^0.12.7",
-    "reflect-metadata": "^0.1.12",
     "restify": "^7.1.0"
   }
 }
