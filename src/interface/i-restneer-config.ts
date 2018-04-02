@@ -1,4 +1,5 @@
 import * as Restify from "restify";
+import { IRestifyServerOptions } from "./i-restify";
 
 export interface IRestneerConfigGeneral {
     dirRoot: string,
@@ -9,5 +10,5 @@ export interface IRestneerConfigGeneral {
 
 export interface IRestneerConfig {
     general: IRestneerConfigGeneral;
-    server: Restify.ServerOptions;
+    server: IRestifyServerOptions;
 }

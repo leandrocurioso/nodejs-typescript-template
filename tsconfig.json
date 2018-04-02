@@ -13,7 +13,6 @@
         "dom" 
       ],
       "types": [
-        "reflect-metadata",
         "node",
         "mocha",
         "chai",

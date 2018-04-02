@@ -1,4 +1,3 @@
-import * as Restify from "restify";
 import RestifyServer from "./restify-server";
 import RestifyServerFactory from "./restify-server-factory";
 
