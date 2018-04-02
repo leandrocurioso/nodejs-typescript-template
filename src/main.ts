@@ -1,13 +1,13 @@
-import RestifyServer from "./restify-server";
-import RestifyServerFactory from "./restify-server-factory";
+import RestneerServer from "./restneer-server";
+import RestneerServerFactory from "./restneer-server-factory";
 
 class Main {
 
     public static run(
-        restifyServer: RestifyServer = new RestifyServerFactory().getInstance()): void {
+        restneerServer: RestneerServer = new RestneerServerFactory().getInstance()): void {
         try {
-            restifyServer.loadMiddleware();
-            restifyServer.listen();
+            restneerServer.loadMiddleware();
+            restneerServer.listen();
         } catch (err) {
             throw err;
         }

@@ -16,7 +16,8 @@
         "max-line-length": false,
         "no-string-literal": false,
         "member-ordering": false,
-        "variable-name": false
+        "variable-name": false,
+        "no-empty-interface": false
     },
     "rulesDirectory": [
         "tslint-no-unused-expression-chai"

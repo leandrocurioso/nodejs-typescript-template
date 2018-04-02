@@ -1,11 +1,15 @@
+export interface IFactoryOptions {
+    params: any;
+}
+
 export interface IFactory {
-    getInstance();
+    getInstance(options?: IFactoryOptions);
 }
 
 export interface IFactorySync<T> extends IFactory {
-    getInstance(): T;
+    getInstance(options?: IFactoryOptions): T;
 }
 
 export interface IFactoryAsync<T> extends IFactory {
-    getInstance(): Promise<T>;
+    getInstance(options?: IFactoryOptions): Promise<T>;
 }

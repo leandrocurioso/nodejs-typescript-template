@@ -1,16 +1,15 @@
 import { IRestneerConfig } from "./interface/i-restneer-config";
-import { IRestifyServer } from "./interface/i-restify-server";
-import { IRestify } from "./interface/i-restify";
-import * as Restify from "restify";
+import { IRestneerServer } from "./interface/i-restneer-server";
+import { IRestify, IRestifyServerOptions, IRestifyServer } from "./interface/i-restify";
 
-class RestifyServer implements IRestifyServer {
+class RestneerServer implements IRestneerServer {
 
   private readonly _restify: IRestify;
-  private readonly _restifyServer: Restify.Server;
+  private readonly _restifyServer: IRestifyServer;
   private readonly _restneerConfig: IRestneerConfig;
 
   constructor(
-    readonly restify: IRestify = Restify,
+    readonly restify: IRestify,
     readonly restneerConfig: IRestneerConfig
   ) {
     this._restify = restify;
@@ -34,12 +33,11 @@ class RestifyServer implements IRestifyServer {
   public listen(
     port: number = this._restneerConfig.general.port,
     name: string = this._restifyServer.name,
-    pid: number = process.pid,
-    url: string = this._restifyServer.url
+    pid: number = process.pid
   ): void {
     this._restifyServer.listen(port, () => console.log("[%s][%s] - Listening at %s", name, pid, this._restifyServer.url));
   }
 
 }
 
-export default RestifyServer;
+export default RestneerServer;
