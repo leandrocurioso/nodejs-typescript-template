@@ -1,6 +1,6 @@
-import { IRestneerConfig } from "./interface/i-restneer-config";
-import { IRestneerServer } from "./interface/i-restneer-server";
-import { IRestify, IRestifyServerOptions, IRestifyServer } from "./interface/i-restify";
+import { IRestneerConfig } from "./i-restneer-config";
+import { IRestneerServer } from "./i-restneer-server";
+import { IRestify, IRestifyServerOptions, IRestifyServer } from "../restify/i-restify";
 
 class RestneerServer implements IRestneerServer {
 
