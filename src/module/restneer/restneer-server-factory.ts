@@ -1,7 +1,7 @@
 import RestneerServer from "./restneer-server";
-import { IFactoryOptions, IFactorySync } from "./interface/i-factory";
-import { IRestneerConfigGeneral } from "./interface/i-restneer-config";
-import { IRestifyServerOptions } from "./interface/i-restify";
+import { IFactoryOptions, IFactorySync } from "../../interface/i-factory";
+import { IRestneerConfigGeneral } from "./i-restneer-config";
+import { IRestifyServerOptions } from "../restify/i-restify";
 import * as Restify from "restify";
 
 class RestneerServerFactory implements IFactorySync<RestneerServer> {

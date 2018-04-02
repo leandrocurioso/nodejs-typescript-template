@@ -1,10 +1,11 @@
-import RestneerServer from "./restneer-server";
-import RestneerServerFactory from "./restneer-server-factory";
+import RestneerServer from "./module/restneer/restneer-server";
+import RestneerServerFactory from "./module/restneer/restneer-server-factory";
 
 class Main {
 
     public static run(
-        restneerServer: RestneerServer = new RestneerServerFactory().getInstance()): void {
+        restneerServer: RestneerServer = new RestneerServerFactory().getInstance()
+    ): void {
         try {
             restneerServer.loadMiddleware();
             restneerServer.listen();

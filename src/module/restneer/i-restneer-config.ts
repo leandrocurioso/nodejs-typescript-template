@@ -1,5 +1,4 @@
-import * as Restify from "restify";
-import { IRestifyServerOptions } from "./i-restify";
+import { IRestifyServerOptions } from "../restify/i-restify";
 
 export interface IRestneerConfigGeneral {
     dirRoot: string;
