@@ -60,6 +60,8 @@
     "dotenv": "^5.0.1",
     "getenv": "^0.7.0",
     "path": "^0.12.7",
-    "restify": "^7.1.0"
+    "restify": "^7.1.0",
+    "restify-x-request-id": "^1.0.8",
+    "restneer-util": "github:leandrocurioso/restneer-util#master"
   }
 }

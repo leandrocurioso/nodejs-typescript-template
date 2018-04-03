@@ -7,7 +7,9 @@ class Main {
         restneerServer: RestneerServer = new RestneerServerFactory().getInstance()
     ): void {
         try {
-            restneerServer.loadMiddleware();
+            restneerServer.loadUse();
+            restneerServer.loadPre();
+            restneerServer.loadOn();
             restneerServer.listen();
         } catch (err) {
             throw err;

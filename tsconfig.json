@@ -24,7 +24,7 @@
         "node_modules/@types/chai",
         "node_modules/@types/sinon",      
         "node_modules/@types/restify",   
-        "src/lib/typings/nodejs.d"
+        "typings/nodejs.d"
       ]
     },
     "include": [

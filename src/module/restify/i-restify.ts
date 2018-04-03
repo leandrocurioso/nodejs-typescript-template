@@ -1,8 +1,11 @@
 import * as Restify from "restify";
 
-export interface IRestifyServer extends Restify.Server {}
-
-export interface IRestifyServerOptions extends Restify.ServerOptions {}
+export type IRestifyRequest = Restify.Request;
+export type IRestifyResponse = Restify.Response;
+export type IRestifyNext = Restify.Next;
+export type IRestifyError = Error;
+export type IRestifyServerOptions = Restify.ServerOptions;
+export type IRestifyServer = Restify.Server;
 
 export interface IRestifyPlugins {
     acceptParser(acceptables: string[]): any;

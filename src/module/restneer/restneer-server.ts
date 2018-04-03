@@ -1,5 +1,11 @@
 import { IRestneerConfig } from "./i-restneer-config";
-import { IRestneerServer } from "./i-restneer-server";
+import { IRestneerServer, IRestneerMiddleware } from "./i-restneer-server";
+import RestfiyXRequestId from "restify-x-request-id";
+import { 
+  RestneerMiddlewareNotFound, 
+  RestneerMiddlewareInternalServerError,
+} from "../restneer/restneer-middleware";
+
 import { IRestify, IRestifyServerOptions, IRestifyServer } from "../restify/i-restify";
 
 class RestneerServer implements IRestneerServer {
@@ -17,17 +23,28 @@ class RestneerServer implements IRestneerServer {
     this._restifyServer = this._restify.createServer(this._restneerConfig.server);
   }
 
-  public loadMiddleware(
-    acceptable: string[] = this._restneerConfig.general.acceptable
+  public loadUse(
+    acceptables: string[] = this._restneerConfig.general.acceptable
   ): void {
-    this._restifyServer.use(this._restify.plugins.acceptParser(acceptable));
+    this._restifyServer.use(this._restify.plugins.acceptParser(acceptables));
     this._restifyServer.use(this._restify.plugins.queryParser());
     this._restifyServer.use(this._restify.plugins.bodyParser());
-    /* this.restifyServer.pre(CustomMiddleware.rejectContentType);
-    // this.loadServiceRoute();
-    this.restifyServer.on("NotFound", CustomMiddleware.notFound);
-    this.restifyServer.on("InternalServer", CustomMiddleware.internalServer);
-    this.restifyServer.pre(CustomMiddleware.verifyPermission);*/
+  }
+
+  public loadOn(
+    notFound = new RestneerMiddlewareNotFound().function,
+    internalServerError = new RestneerMiddlewareInternalServerError().function
+  ): void {
+    this._restifyServer.on("NotFound", notFound);
+    this._restifyServer.on("InternalServer", internalServerError);
+  }
+
+  public loadPre(
+    restfiyXRequestId = RestfiyXRequestId.middleware,
+    rejectContentType = RestfiyXRequestId.middleware,
+  ): void {
+    this._restifyServer.pre(restfiyXRequestId);
+    this._restifyServer.pre(rejectContentType);
   }
 
   public listen(
