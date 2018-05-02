@@ -1,12 +1,9 @@
-import { IRestneerConfig } from "./i-restneer-config";
-import { IRestneerServer, IRestneerMiddleware } from "./i-restneer-server";
+import { IRestneerConfig } from "./restneer.config.interface";
+import { IRestneerServer, IRestneerMiddleware } from "./restneer.server.interface";
 import RestfiyXRequestId from "restify-x-request-id";
-import { 
-  RestneerMiddlewareNotFound, 
-  RestneerMiddlewareInternalServerError,
-} from "../restneer/restneer-middleware";
-
-import { IRestify, IRestifyServerOptions, IRestifyServer } from "../restify/i-restify";
+import NotFoundMiddleware from "../restneer/middleware/not.found.middleware";
+import InternalServerErrorMiddleware from "../restneer/middleware/internal.server.error.middleware";
+import { IRestify, IRestifyServerOptions, IRestifyServer } from "../restify/restify.interface";
 
 class RestneerServer implements IRestneerServer {
 
@@ -32,8 +29,8 @@ class RestneerServer implements IRestneerServer {
   }
 
   public loadOn(
-    notFound = new RestneerMiddlewareNotFound().function,
-    internalServerError = new RestneerMiddlewareInternalServerError().function
+    notFound = new NotFoundMiddleware().function,
+    internalServerError = new InternalServerErrorMiddleware().function
   ): void {
     this._restifyServer.on("NotFound", notFound);
     this._restifyServer.on("InternalServer", internalServerError);

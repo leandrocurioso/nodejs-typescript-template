@@ -1,4 +1,9 @@
-import { IRestifyRequest, IRestifyResponse, IRestifyNext, IRestifyError  } from "../restify/i-restify";
+import { 
+    IRestifyRequest, 
+    IRestifyResponse, 
+    IRestifyNext, 
+    IRestifyError  
+} from "../restify/restify.interface";
 
 export interface IRestneerServer {
     listen(port: number, name: string, pid: number): void;
